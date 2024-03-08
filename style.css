@@ -81,6 +81,10 @@ form .input-field {
     border: 1px solid #d1d1d1;
 }
 
+.invalid input {
+    border: 2px solid #d93025;
+}
+
 .input-field .show-hide {
     position: absolute;
     right: 13px;
@@ -99,6 +103,10 @@ form .input-field {
     color: #d93025;
     font-size: 13px;
     display: none;
+}
+
+.invalid .error {
+    display: flex;
 }
 
 .error .error-icon {
