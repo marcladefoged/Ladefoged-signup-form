@@ -1,12 +1,31 @@
-// Timestamp: 23 min 33 sek
-
 const form = document.querySelector("form"),
+        usernameField = form.querySelector(".username-field"),
+        usernameInput = usernameField.querySelector(".username"),
         emailField = form.querySelector(".email-field"),
         emailInput = emailField.querySelector(".email"),
         passField = form.querySelector(".create-password"),
         passInput = passField.querySelector(".password"),
         cPassField = form.querySelector(".confirm-password"),
         cPassInput = cPassField.querySelector(".cPassword");
+
+
+    // Username Validation
+    function createUsername() {
+       if (usernameInput.value.length <= 3) {
+        console.log("Username is too short!")
+        document.getElementById('username-error').innerText = 'Username is too short!'
+        return usernameField.classList.add("invalid");
+       }
+       usernameField.classList.remove("invalid");
+
+       if (usernameInput.value.length >= 14) {
+        console.log("Username is too long!");
+        document.getElementById('username-error').innerText = 'Username is too long!'
+        return usernameField.classList.add('invalid');
+       }
+       usernameField.classList.remove('invalid');
+    }
+
 
     // Email Validation
     function checkEmail() {
@@ -55,16 +74,19 @@ const form = document.querySelector("form"),
     // Calling Function on Form Submit
     form.addEventListener("submit", (e) => {
         e.preventDefault();
+        createUsername();
         checkEmail();
         createPass();
         confirmPass();
 
         // Calling function on keyup
+        usernameInput.addEventListener("keyup", createUsername);
         emailInput.addEventListener("keyup", checkEmail);
         passInput.addEventListener("keyup", createPass);
         cPassInput.addEventListener("keyup", confirmPass);
 
         if (
+        !usernameField.classList.contains("invalid") &&
         !emailField.classList.contains("invalid") &&
         !passField.classList.contains("invalid") &&
         !cPassField.classList.contains("invalid")

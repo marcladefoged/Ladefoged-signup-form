@@ -11,13 +11,13 @@
         <div class="container">
             <header>Signup Now!</header>
             <form action="#">
-                <div class="field">
-                    <div class="input-field email-field">
-                        <input type="text" placeholder="Enter your username">
+                <div class="field username-field">
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your username" class="username">
                     </div>
                     <span class="error username-error">
                         <i class="bx bx-error-alt error-icon" ></i>
-                        <p class="error-text">Please enter your username</p>
+                        <p id="username-error" class="error-text"></p>
                     </span>
                 </div>
                 <div class="field email-field">
@@ -36,7 +36,7 @@
                     </div>
                     <span class="error password-error">
                         <i class="bx bx-error-alt error-icon" ></i>
-                        <p class="error-text">Please enter atleast 8 characters with numbers, symbols, small and capital letters.</p>
+                        <p class="error-text">Please enter atleast 8 letters or numbers containing atleast 1 capitalized letter.</p>
                     </span>
                 </div>
                 <div class="field confirm-password">
